@@ -297,6 +297,7 @@ CAN communication allows each node to exchange information using CAN identifiers
 
 ---
 
+
 ## 🧰 6. Hardware Requirements
 
 | Component                   |    Quantity | Purpose                        |
