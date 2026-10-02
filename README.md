@@ -30,60 +30,15 @@ It monitors engine temperature and fuel level, controls left and right indicator
 
 ## 🏗️ 1. Overall System Architecture
 
-The system is divided into three independent embedded nodes. Each node performs a specific task and exchanges relevant information through a shared CAN bus.
+## Original Project Block Diagram
 
-```mermaid
-flowchart TB
-    subgraph MAIN["MAIN NODE"]
-        direction TB
-        T["DS18B20<br/>Temperature Sensor"]
-        SW["Mode / Left / Right<br/>Switches"]
-        MCU1["LPC2129<br/>ARM7 Controller"]
-        LCD["20×4 LCD"]
-        CAN1["MCP2551<br/>CAN Transceiver"]
-        T --> MCU1
-        SW --> MCU1
-        MCU1 --> LCD
-        MCU1 <--> CAN1
-    end
+The following diagram represents the original system architecture from the project documentation.
 
-    subgraph FUEL["FUEL MONITORING NODE"]
-        direction TB
-        FG["Fuel Gauge /<br/>Analog Input"]
-        ADC["LPC2129<br/>ADC"]
-        MCU2["LPC2129<br/>Fuel Processing"]
-        CAN2["MCP2551<br/>CAN Transceiver"]
-        FG --> ADC
-        ADC --> MCU2
-        MCU2 <--> CAN2
-    end
+![Original Project Block Diagram](images/original-block-diagram.png)
 
-    subgraph ALERT["INDICATOR AND REVERSE ALERT NODE"]
-        direction TB
-        US["HC-SR04<br/>Ultrasonic Sensor"]
-        MCU3["LPC2129<br/>Alert Controller"]
-        LED["Left / Right<br/>Indicator LEDs"]
-        BUZ["Buzzer"]
-        RLED["Reverse Alert LED"]
-        CAN3["MCP2551<br/>CAN Transceiver"]
-        US --> MCU3
-        MCU3 --> LED
-        MCU3 --> BUZ
-        MCU3 --> RLED
-        MCU3 <--> CAN3
-    end
+## Detailed Hardware Architecture
 
-    CAN1 <-->|"CANH / CANL"| BUS(("CAN BUS"))
-    CAN2 <-->|"CANH / CANL"| BUS
-    CAN3 <-->|"CANH / CANL"| BUS
-
-    classDef controller fill:#dcecff,stroke:#2865a5,color:#143454,stroke-width:1.5px
-    classDef interface fill:#fff0d5,stroke:#b77b15,color:#513600
-    classDef network fill:#dff3e4,stroke:#30834b,color:#164b29
-    class MCU1,MCU2,MCU3 controller
-    class CAN1,CAN2,CAN3 interface
-    class BUS network
-```
+The following diagrams illustrate the individual hardware nodes, CAN communication network, and system operation in detail.
 
 ### Architecture Explanation
 
