@@ -1,0 +1,9 @@
+main.o: main.c
+main.o: C:\KeilARM\ARM\INC\Philips\LPC21xx.h
+main.o: types.h
+main.o: defines.h
+main.o: delay.h
+main.o: can_defines.h
+main.o: can.h
+main.o: can_ids.h
+main.o: hcsr04.h

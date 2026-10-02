@@ -1,0 +1,4 @@
+--cpu ARM7TDMI "startup.o" "adc.o" "can.o" "delay.o" "main.o" "pin_connect_block.o" --strict --scatter "fuel.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\fuel.map" -o "fuel.axf"

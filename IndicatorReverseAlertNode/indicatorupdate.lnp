@@ -1,0 +1,4 @@
+--cpu ARM7TDMI "startup.o" "can.o" "delay.o" "hcsr04.o" "main.o" "pin_connect_block.o" --strict --scatter "indicatorupdate.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\indicatorupdate.map" -o "indicatorupdate.axf"
