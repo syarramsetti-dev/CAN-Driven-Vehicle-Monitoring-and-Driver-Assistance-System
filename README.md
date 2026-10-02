@@ -27,15 +27,6 @@ It monitors engine temperature and fuel level, controls left and right indicator
 * 🖥️ Real-time monitoring using a 20×4 LCD.
 
 ---
-## Original Project Block Diagram
-
-The following diagram represents the original system architecture from the project documentation.
-
-![Original Project Block Diagram](images/original-block-diagram.png)
-
-## Detailed Hardware Architecture
-
-The following diagrams illustrate the individual hardware nodes, CAN communication network, and system operation in detail.
 
 ## 🏗️ 1. Overall System Architecture
 
